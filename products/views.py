@@ -9,6 +9,7 @@ from django.shortcuts import render
 def index(request):
     context = {
         "title": "Store",
+        "is_prom": True,
     }
     return render(request, "products/index.html", context)
 
@@ -19,9 +20,9 @@ def products(request):
         "products": [
             {
                 "image": "/static/vendor/img/products/Adidas-hoodie.png",
-                "name": "Худи черного цвета с монограммами adidas Originals",
+                "name": "Худи черного цвета c монограммами adidas Originals",
                 "price": 6090,
-                "description": "Мягкая ткань для свитшотов. Стиль и комфорт – это образ жизни.",
+                "description": "Мягкая ткань для свитшотов. Стиль и комфорт - это образ жизни.",
             },
             {
                 "image": "/static/vendor/img/products/Blue-jacket-The-North-Face.png",
@@ -33,7 +34,7 @@ def products(request):
                 "image": "/static/vendor/img/products/Brown-sports-oversized-top-ASOS-DESIGN.png",
                 "name": "Коричневый спортивный oversized-топ ASOS DESIGN",
                 "price": 3390,
-                "description": "Материал с плюшевой текстурой. Удобный и мягкий.",
+                "description": "Материал c плюшевой текстурой. Удобный и мягкий.",
             },
         ]
     }
