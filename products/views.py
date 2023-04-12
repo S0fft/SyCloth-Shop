@@ -1,9 +1,8 @@
 # Файл для отображения шаблонов (контента) на сайте
 # Функции = контроллеры = обработчики запросов = виьюхи
+# Create your views here.
 
 from django.shortcuts import render
-
-# Create your views here.
 
 
 def index(request):
@@ -17,25 +16,25 @@ def index(request):
 def products(request):
     context = {
         "title": "Store - Каталог",
-        # "products": [
-        #     {
-        #         "image": "/static/vendor/img/products/Adidas-hoodie.png",
-        #         "name": "Худи черного цвета c монограммами adidas Originals",
-        #         "price": 6090,
-        #         "description": "Мягкая ткань для свитшотов. Стиль и комфорт - это образ жизни.",
-        #     },
-        #     {
-        #         "image": "/static/vendor/img/products/Blue-jacket-The-North-Face.png",
-        #         "name": "Синяя куртка The North Face",
-        #         "price": 23725,
-        #         "description": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
-        #     },
-        #     {
-        #         "image": "/static/vendor/img/products/Brown-sports-oversized-top-ASOS-DESIGN.png",
-        #         "name": "Коричневый спортивный oversized-топ ASOS DESIGN",
-        #         "price": 3390,
-        #         "description": "Материал c плюшевой текстурой. Удобный и мягкий.",
-        #     },
-        # ]
+        "products": [
+            {
+                "image": "/static/vendor/img/products/Adidas-hoodie.png",
+                "name": "Худи черного цвета c монограммами adidas Originals",
+                "price": 6090,
+                "description": "Мягкая ткань для свитшотов. Стиль и комфорт - это образ жизни.",
+            },
+            {
+                "image": "/static/vendor/img/products/Blue-jacket-The-North-Face.png",
+                "name": "Синяя куртка The North Face",
+                "price": 23725,
+                "description": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
+            },
+            {
+                "image": "/static/vendor/img/products/Brown-sports-oversized-top-ASOS-DESIGN.png",
+                "name": "Коричневый спортивный oversized-топ ASOS DESIGN",
+                "price": 3390,
+                "description": "Материал c плюшевой текстурой. Удобный и мягкий.",
+            },
+        ]
     }
     return render(request, "products/products.html", context)
