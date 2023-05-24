@@ -51,9 +51,9 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]  # Промежуточные слои, отвечают за безопасть, проброску сесси, добовляют аунтификацию
 
-ROOT_URLCONF = 'base.urls'
+ROOT_URLCONF = 'base.urls'  # Там, где находятся наши url адреса
 
-TEMPLATES = [
+TEMPLATES = [  # Переменная, ответчающая за работу с шаблонами
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -69,7 +69,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'base.wsgi.application'
+WSGI_APPLICATION = 'base.wsgi.application'  # Ссылка на wsigi
 
 
 # Database
@@ -121,14 +121,14 @@ USE_TZ = True  # Локализация
 
 STATIC_URL = '/static/'  # Путь, где храниться HTML, CSS, JS, img и т.п файлы (статика)
 STATICFILES_DIRS = [
-    BASE_DIR / "static",
+    BASE_DIR / 'static',
 ]
 
-MEDIA_URL = "/media/"
-MEDIA_ROOT = BASE_DIR / "media"
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.   db.models.BigAutoField'  # Для работы с БД
+DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'  # Для работы с БД

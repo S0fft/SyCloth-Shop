@@ -4,11 +4,11 @@ from products.models import ProductCategory, Product
 
 def index(request):
     context = {
-        "title": "Store",
-        "is_prom": True,
+        'title': 'Store',
+        'is_prom': True,
     }
 
-    return render(request, "products/index.html", context)
+    return render(request, 'products/index.html', context)
 
 
 def products(request):
