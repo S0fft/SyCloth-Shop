@@ -5,6 +5,7 @@
 __pycache__
 db.sqlite3
 media
+.store-template-course
 
 # Backup files #
 *.bak
