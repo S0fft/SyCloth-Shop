@@ -53,23 +53,20 @@ class UserRegistrationForm(UserCreationForm):
 class UserProfileForm(UserChangeForm):
     first_name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4',
-        'placeholder': 'Введите имя',
     }))
     last_name = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4',
-        'placeholder': 'Введите имя',
     }))
     image = forms.ImageField(widget=forms.FileInput(attrs={
-        'class': 'form-control py-4',
-        'placeholder': 'Введите имя',
-    }))
+        'class': 'custom-file-input',
+    }), required=False)
     username = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4',
-        'placeholder': 'Введите имя',
+        'readonly': True
     }))
-    first_name = forms.CharField(widget=forms.TextInput(attrs={
+    email = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4',
-        'placeholder': 'Введите имя',
+        'readonly': True
     }))
 
     class Meta:

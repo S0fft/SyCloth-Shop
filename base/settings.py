@@ -106,7 +106,7 @@ AUTH_PASSWORD_VALIDATORS = [  # Валидаторы паролей (прове�
 # Internationalization
 # https://docs.djangoproject.com/en/3.2/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'  # Выбор языка в проекте
+LANGUAGE_CODE = 'ru-ru'  # Выбор языка в проекте
 
 TIME_ZONE = 'UTC'  # Тайм-зона
 

@@ -1,5 +1,3 @@
-# Файл хранит информацию о конфигурации приложения
-
 from django.apps import AppConfig
 
 
