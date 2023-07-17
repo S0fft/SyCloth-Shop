@@ -6,6 +6,12 @@ from django.views.generic.list import ListView
 from products.models import ProductCategory, Product, Basket
 
 
+# def index(request):
+#     context = {'title': 'Store', 'is_prom': True}
+
+#     return render(request, 'products/index.html', context)
+
+
 class IndexView(TemplateView):
     template_name = 'products/index.html'
 
