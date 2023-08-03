@@ -27,26 +27,26 @@ def login(request):
     return render(request, 'users/login.html', context)
 
 
-class UserRegistrationView(CreateView):
-    model = User
-    form_class = UserRegistrationForm
-    template_name = 'users/registration.html'
-    success_url = reverse_lazy('users:login')
+# class UserRegistrationView(CreateView):
+#     model = User
+#     form_class = UserRegistrationForm
+#     template_name = 'users/registration.html'
+#     success_url = reverse_lazy('users:login')
 
 
-# def registration(request):
-#     if request.method == 'POST':
-#         form = UserRegistrationForm(data=request.POST)
+def registration(request):
+    if request.method == 'POST':
+        form = UserRegistrationForm(data=request.POST)
 
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Поздравялем! Вы успешно зарегистрированы!')
-#             return HttpResponseRedirect(reverse('users:login'))
-#     else:
-#         form = UserRegistrationForm()
+        if form.is_valid():
+            form.save()
+            messages.success(request, 'Поздравялем! Вы успешно зарегистрированы!')
+            return HttpResponseRedirect(reverse('users:login'))
+    else:
+        form = UserRegistrationForm()
 
-#     context = {'form': form}
-#     return render(request, 'users/registration.html', context)
+    context = {'form': form}
+    return render(request, 'users/registration.html', context)
 
 
 @login_required
