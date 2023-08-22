@@ -25,6 +25,7 @@ class IndexView(TemplateView):
 class ProductsListView(ListView):
     model = Product
     template_name = 'products/products.html'
+    context_object_name = 'products'
     paginate_by = 3
 
     def get_queryset(self):
