@@ -13,8 +13,8 @@ class UserRegistrationView(CreateView):
     template_name = 'users/registration.html'
     success_url = reverse_lazy('users:login')
 
-    def get_context_data(self, **kwargs):
-        context = super(UserRegistrationView, self).get_context_data()
+    def get_context_data(self):
+        context = super().get_context_data()
         context['title'] = 'SyCloth - Регистрация'
 
         return context
@@ -25,8 +25,8 @@ class UserProfileView(UpdateView):
     form_class = UserProfileForm
     template_name = 'users/profile.html'
 
-    def get_context_data(self, **kwargs):
-        context = super(UserProfileView, self).get_context_data()
+    def get_context_data(self):
+        context = super().get_context_data()
         context['title'] = 'SyCloth - Личный кабинет'
         context['baskets'] = Basket.objects.filter(user=self.object)
 
