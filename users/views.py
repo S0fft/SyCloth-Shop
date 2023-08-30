@@ -1,20 +1,22 @@
+from django.views.generic.edit import CreateView, UpdateView
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
-from django.views.generic.edit import CreateView, UpdateView
+from django.contrib.messages.views import SuccessMessageMixin
 
-from products.models import Basket
 from users.forms import UserLoginForm, UserRegistrationForm, UserProfileForm
+from products.models import Basket
 from users.models import User
 
 
-class UserRegistrationView(CreateView):
+class UserRegistrationView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserRegistrationForm
     template_name = 'users/registration.html'
     success_url = reverse_lazy('users:login')
+    success_message = 'Поздравляем! Вы успешно зарегистрированы!'
 
-    def get_context_data(self):
-        context = super().get_context_data()
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
         context['title'] = 'SyCloth - Регистрация'
 
         return context
@@ -33,7 +35,7 @@ class UserProfileView(UpdateView):
         return context
 
     def get_success_url(self):
-        return reverse_lazy('users:profile', args=(self.object.id))
+        return reverse_lazy('users:profile', args=(self.object.id,))
 
 
 class UserLoginView(LoginView):
@@ -66,7 +68,7 @@ class UserLoginView(LoginView):
 
 #         if form.is_valid():
 #             form.save()
-#             messages.success(request, 'Поздравялем! Вы успешно зарегистрированы!')
+#             messages.success(request, 'Поздравляем! Вы успешно зарегистрированы!')
 #             return HttpResponseRedirect(reverse('users:login'))
 #     else:
 #         form = UserRegistrationForm()
