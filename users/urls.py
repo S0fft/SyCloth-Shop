@@ -11,4 +11,5 @@ urlpatterns = [
     path('registration/', UserRegistrationView.as_view(), name='registration'),
     path('profile/<int:pk>', login_required(UserProfileView.as_view()), name='profile'),
     path('logout/', LogoutView.as_view(), name='logout'),
+    path('verify/<str:email>', LogoutView.as_view(), name='logout'),
 ]

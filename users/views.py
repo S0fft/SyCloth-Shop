@@ -1,4 +1,5 @@
 from django.views.generic.edit import CreateView, UpdateView
+from django.views.generic.base import TemplateView
 from django.contrib.auth.views import LoginView
 from django.urls import reverse_lazy
 from django.contrib.messages.views import SuccessMessageMixin
@@ -40,62 +41,63 @@ class UserLoginView(TitleMixin, LoginView):
     title = 'SyCloth - Авторизация'
 
 
-# def login(request):
-#     if request.method == 'POST':
-#         form = UserLoginForm(data=request.POST)
+class EmailVerificationView(TitleMixin, TemplateView):
+    template_name = 'users/email_verification.html'
+    title = 'Store - подтверждение электронной почты'
 
-#         if form.is_valid():
-#             username = request.POST['username']
-#             password = request.POST['password']
-#             user = auth.authenticate(username=username, password=password)
+    # def login(request):
+    #     if request.method == 'POST':
+    #         form = UserLoginForm(data=request.POST)
 
-#             if user:
-#                 auth.login(request, user)
-#                 return HttpResponseRedirect(reverse('index'))
-#     else:
-#         form = UserLoginForm()
+    #         if form.is_valid():
+    #             username = request.POST['username']
+    #             password = request.POST['password']
+    #             user = auth.authenticate(username=username, password=password)
 
-#     context = {'form': form}
-#     return render(request, 'users/login.html', context)
+    #             if user:
+    #                 auth.login(request, user)
+    #                 return HttpResponseRedirect(reverse('index'))
+    #     else:
+    #         form = UserLoginForm()
 
+    #     context = {'form': form}
+    #     return render(request, 'users/login.html', context)
 
-# def registration(request):
-#     if request.method == 'POST':
-#         form = UserRegistrationForm(data=request.POST)
+    # def registration(request):
+    #     if request.method == 'POST':
+    #         form = UserRegistrationForm(data=request.POST)
 
-#         if form.is_valid():
-#             form.save()
-#             messages.success(request, 'Поздравляем! Вы успешно зарегистрированы!')
-#             return HttpResponseRedirect(reverse('users:login'))
-#     else:
-#         form = UserRegistrationForm()
+    #         if form.is_valid():
+    #             form.save()
+    #             messages.success(request, 'Поздравляем! Вы успешно зарегистрированы!')
+    #             return HttpResponseRedirect(reverse('users:login'))
+    #     else:
+    #         form = UserRegistrationForm()
 
-#     context = {'form': form}
-#     return render(request, 'users/registration.html', context)
+    #     context = {'form': form}
+    #     return render(request, 'users/registration.html', context)
 
+    # @login_required
+    # def profile(request):
+    #     if request.method == 'POST':
+    #         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
 
-# @login_required
-# def profile(request):
-#     if request.method == 'POST':
-#         form = UserProfileForm(instance=request.user, data=request.POST, files=request.FILES)
+    #         if form.is_valid():
+    #             form.save()
+    #             return HttpResponseRedirect(reverse('users:profile'))
+    #         else:
+    #             print(form.errors)
+    #     else:
+    #         form = UserProfileForm(instance=request.user)
 
-#         if form.is_valid():
-#             form.save()
-#             return HttpResponseRedirect(reverse('users:profile'))
-#         else:
-#             print(form.errors)
-#     else:
-#         form = UserProfileForm(instance=request.user)
+    #     context = {
+    #         'title': 'Store - Профиль',
+    #         'form': form,
+    #         'baskets': Basket.objects.filter(user=request.user),
+    #     }
+    #     return render(request, 'users/profile.html', context)
 
-#     context = {
-#         'title': 'Store - Профиль',
-#         'form': form,
-#         'baskets': Basket.objects.filter(user=request.user),
-#     }
-#     return render(request, 'users/profile.html', context)
+    # def logout(request):
+    #     auth.logout(request)
 
-
-# def logout(request):
-#     auth.logout(request)
-
-#     return HttpResponseRedirect(reverse('index'))
+    #     return HttpResponseRedirect(reverse('index'))
