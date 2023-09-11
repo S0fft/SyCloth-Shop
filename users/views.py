@@ -26,12 +26,6 @@ class UserProfileView(TitleMixin, UpdateView):
     template_name = 'users/profile.html'
     title = 'SyCloth - Личный кабинет'
 
-    def get_context_data(self):
-        context = super().get_context_data()
-        context['baskets'] = Basket.objects.filter(user=self.object)
-
-        return context
-
     def get_success_url(self):
         return reverse_lazy('users:profile', args=(self.object.id,))
 
@@ -54,6 +48,6 @@ class EmailVerificationView(TitleMixin, TemplateView):
         if email_verifications.exists() and not email_verifications.first().is_expired():
             user.is_verified_email = True
             user.save()
-            return super(EmailVerificationView, self).get(request, *args, **kwargs  )
+            return super(EmailVerificationView, self).get(request, *args, **kwargs)
         else:
             return HttpResponseRedirect(reverse('index'))
