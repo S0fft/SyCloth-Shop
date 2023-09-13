@@ -109,7 +109,8 @@ LOGOUT_REDIRECT_URL = '/'
 
 # EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
-# EMAIL_HOST = 'smtp.gmail.com'
-# EMAIL_PORT = '587'
-# EMAIL_HOST_USER = ''
-# EMAIL_HOST_PASSWORD = ''
+EMAIL_HOST = config('EMAIL_HOST')
+EMAIL_PORT = config('EMAIL_PORT')
+EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
