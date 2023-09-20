@@ -56,3 +56,8 @@ users view:
         auth.logout(request)
 
         return HttpResponseRedirect(reverse('index'))
+
+
+settings.py:
+
+# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
