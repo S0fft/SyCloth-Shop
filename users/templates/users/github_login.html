@@ -13,7 +13,11 @@
                         </div>
                         <div class="card-footer text-center">
                             <div class="small">
-                                <a href="{% url 'users:login' %}">Continue</a>
+                                {% comment %} <a href="{% url 'users:login' %}">Continue</a> {% endcomment %}
+                                <form method="post">
+                                    <input type="hidden" name="csrfmiddlewaretoken" value="5pL8M1TFWvliznqD4URqRJVsR208TQ8XM6n5EKTrdW4wWjnXjd2jtmyj0MeMMvkQ">
+                                    <button type="submit">Continue</button>
+                                </form>
                             </div>
                         </div>
                     </div>

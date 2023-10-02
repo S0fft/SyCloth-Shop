@@ -76,22 +76,22 @@ DATABASES = {
     }
 }
 
-# AUTH_PASSWORD_VALIDATORS = [n
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
-#     },
-#     {
-#         'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
-#     },
-#     {
-#         # 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
-#     },
-#     {
-#         # 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
-#     },
-# ]
+AUTH_PASSWORD_VALIDATORS = [n
+    {
+        'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
+    },
+    {
+        'NAME': 'django.contrib.auth.password_validation.MinimumLengthValidator',
+    },
+    {
+        # 'NAME': 'django.contrib.auth.password_validation.CommonPasswordValidator',
+    },
+    {
+        # 'NAME': 'django.contrib.auth.password_validation.NumericPasswordValidator',
+    },
+]
 
-LANGUAGE_CODE = 'en-ru'
+LANGUAGE_CODE = 'en-en'
 
 TIME_ZONE = 'UTC'
 
@@ -127,7 +127,6 @@ EMAIL_HOST_USER = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
 
-# EMAIL_BACKEND = "django.core.mail.backends.console.EmailBackend"
 
 AUTHENTICATION_BACKENDS = [
     'django.contrib.auth.backends.ModelBackend',

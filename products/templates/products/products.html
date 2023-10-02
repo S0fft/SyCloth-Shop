@@ -63,11 +63,11 @@
                             <h4 class="card-title">
                                 <a href="#">{{ product.name }}</a>
                             </h4>
-                            <h5>{{ product.price }} грн.</h5>
+                            <h5>{{ product.price }} $</h5>
                             <p class="card-text">{{ product.description }}</p>
                         </div>
                         <div class="card-footer text-center">
-                            <a class="btn btn-outline-success" href="{% url 'products:basket_add' product.id %}">Отправить в корзину</a>
+                            <a class="btn btn-outline-success" href="{% url 'products:basket_add' product.id %}">Add to cart</a>
                         </div>
                     </div>
                 </div>
@@ -82,7 +82,7 @@
                         <a class="page-link"
                         href="{% if page_obj.has_previous %} {% url 'products:paginator' page_obj.previous_page_number %} {% else %} # {% endif %}"
                         tabindex="-1" aria-disabled="true">
-                        Предыдущая
+                        Previous
                     </a>
                     </li>
                     {% for page in paginator.page_range %}
@@ -95,7 +95,7 @@
                     <li class="page-item {% if not page_obj.has_next %} disabled {% endif %}">
                         <a class="page-link"
                         href="{% if page_obj.has_next %} {% url 'products:paginator' page_obj.next_page_number %} {% else %} # {% endif %}">
-                        Слеудующая
+                        Next
                     </a>
                     </li>
                 </ul>
