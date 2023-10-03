@@ -22,8 +22,9 @@ class ProductsListView(ListView):
     model = Product
     template_name = 'products/products.html'
     context_object_name = 'products'
-    paginate_by = 3
-    title = 'Store - Каталог'
+    total_lots = Product.objects.all()
+    paginate_by = 6
+    title = 'Store - Catalog'
 
     def get_queryset(self):
         queryset = super().get_queryset()

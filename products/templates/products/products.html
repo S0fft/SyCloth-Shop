@@ -12,7 +12,7 @@
 
         <div class="col-lg-3">
 
-            <h1 class="my-4">SyCloth</h1>
+            <h2 class="my-4"><a class="nav-link" href="{% url 'products:index' %}">SyCloth <i class="fas fa-shopping-bag"></i> </a></h2>
             <div class="list-group">
                 {% for category in categories %}
                     <a href="{% url 'products:category' category.id %}" class="list-group-item">{{ category.name }}</a>
@@ -52,7 +52,6 @@
             </div>
 
             <div class="row">
-
                 {% for product in products %}
                 <div class="col-lg-4 col-md-6 mb-4">
                     <div class="card h-100">
@@ -63,7 +62,7 @@
                             <h4 class="card-title">
                                 <a href="#">{{ product.name }}</a>
                             </h4>
-                            <h5>{{ product.price }} $</h5>
+                            <h5>${{ product.price }}</h5>
                             <p class="card-text">{{ product.description }}</p>
                         </div>
                         <div class="card-footer text-center">
@@ -72,6 +71,7 @@
                     </div>
                 </div>
                 {% endfor %}
+
 
             </div>
 
