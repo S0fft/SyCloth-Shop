@@ -3,9 +3,9 @@
         "model": "products.product",
         "pk": 1,
         "fields": {
-            "name": "Худи черного цвета c монограммами adidas Originals",
-            "description": "Мягкая ткань для свитшотов. Стиль и комфорт - это образ жизни.",
-            "price": "6090.00",
+            "name": "Adidas Originals Black Monogram Hoodie",
+            "description": "The Adidas Originals Black Monogram Hoodie - A sleek and stylish hoodie that showcases the iconic Adidas Originals logo in a monogram pattern. This black hoodie blends sporty comfort with urban fashion, making it a standout choice for both casual and active wear.",
+            "price": "105",
             "quantity": 10,
             "image": "products_images/Adidas-hoodie.png",
             "category": 1
@@ -15,9 +15,9 @@
         "model": "products.product",
         "pk": 2,
         "fields": {
-            "name": "Темно-синие широкие строгие брюки ASOS DESIGN",
-            "description": "Легкая эластичная ткань сирсакер Фактурная ткань.",
-            "price": "890.00",
+            "name": "ASOS DESIGN wide leg formal trousers in navy",
+            "description": "ASOS DESIGN Wide Leg Formal Trousers in Navy - Elevate your formal attire with these sophisticated navy trousers. Their wide-leg design adds a touch of contemporary flair, making them a stylish choice for any dressy occasion. Perfect for those who appreciate both classic and modern fashion.",
+            "price": "45",
             "quantity": 12,
             "image": "products_images/Dark-blue-wide-leg-ASOs-DESIGN-trousers.png",
             "category": 1
@@ -27,9 +27,9 @@
         "model": "products.product",
         "pk": 3,
         "fields": {
-            "name": "Черные туфли на платформе с 3 парами люверсов Dr Martens 1461 Bex",
-            "description": "Гладкий кожаный верх. Натуральный материал.",
-            "price": "13590.00",
+            "name": "Dr Martens 1461 Bex 3-Eye Platform Black Shoes",
+            "description": "The Dr. Martens 1461 Bex 3-Eye Platform Black Shoes - A bold and iconic choice for footwear, these shoes are a fusion of classic Dr. Martens design with a contemporary twist. The black leather upper exudes timeless style, while the distinctive platform sole adds an edgy and fashionable element.",
+            "price": "120",
             "quantity": 20,
             "image": "products_images/Black-Dr-Martens-shoes.png",
             "category": 2
@@ -39,9 +39,9 @@
         "model": "products.product",
         "pk": 4,
         "fields": {
-            "name": "Черный рюкзак Nike Heritage",
-            "description": "Плотная ткань. Легкий материал.",
-            "price": "340.00",
+            "name": "Nike Heritage Backpack in Black",
+            "description": "Nike Heritage Backpack in Black - This iconic backpack is a testament to Nike's commitment to quality and style. Crafted with durable materials, it's designed to withstand the rigors of daily life while maintaining its sleek appearance.",
+            "price": "25",
             "quantity": 7,
             "image": "products_images/Black-Nike-Heritage-backpack.png",
             "category": 4
@@ -51,9 +51,9 @@
         "model": "products.product",
         "pk": 5,
         "fields": {
-            "name": "Коричневый спортивный oversized-топ ASOS DESIGN",
-            "description": "Материал с плюшевой текстурой. Удобный и мягкий.",
-            "price": "390.00",
+            "name": "ASOS DESIGN oversized sporty top in brown",
+            "description": "ASOS DESIGN Oversized Sporty Top in Brown - Elevate your casual look with this trendy oversized top in a rich brown shade, blending sporty comfort with contemporary style effortlessly.",
+            "price": "70",
             "quantity": 26,
             "image": "products_images/Brown-sports-oversized-top-ASOS-DESIGN.png",
             "category": 1
@@ -63,12 +63,156 @@
         "model": "products.product",
         "pk": 6,
         "fields": {
-            "name": "Синяя куртка The North Face",
-            "description": "Гладкая ткань. Водонепроницаемое покрытие. Легкий и теплый пуховый наполнитель.",
-            "price": "23725.00",
-            "quantity": 3,
+            "name": "The North Face blue jacket",
+            "description": "The North Face Blue Jacket - A reliable and versatile outerwear piece by The North Face, designed to keep you warm and dry during outdoor adventures. Featuring a classic blue color, this jacket combines style and functionality for your active lifestyle.",
+            "price": "220",
+            "quantity": 7,
             "image": "products_images/Blue-jacket-The-North-Face.png",
             "category": 1
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 7,
+        "fields": {
+            "name": "ASOS DESIGN tapered cargo trousers in brown",
+            "description": "Elevate your streetwear game with these ASOS DESIGN Tapered Cargo Trousers in Brown. Crafted for the modern urban explorer, these trousers seamlessly blend style and functionality.",
+            "price": "65",
+            "quantity": 11,
+            "image": "products_images/201487782-4.jpg",
+            "category": 1
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 8,
+        "fields": {
+            "name": "ASOS DESIGN classic rigid jeans in mid wash blue with rips | ASOS",
+            "description": "Introducing the ASOS DESIGN Classic Rigid Jeans in Mid Wash Blue with Rips, a must-have addition to your denim collection. These jeans effortlessly combine vintage-inspired charm with a touch of modern edge, making them a versatile staple for any wardrobe.",
+            "price": "12",
+            "quantity": 15,
+            "image": "products_images/2.jpg",
+            "category": 1
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 9,
+        "fields": {
+            "name": "ASOS DESIGN harrington jacket in navy | ASOS",
+            "description": "Elevate your outerwear game with the ASOS DESIGN Harrington Jacket in Navy, a timeless piece that effortlessly merges style and functionality. This classic jacket is an essential addition to any wardrobe, offering versatility, comfort, and a touch of sophistication.",
+            "price": "100",
+            "quantity": 20,
+            "image": "products_images/3.jpg",
+            "category": 3
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 10,
+        "fields": {
+            "name": "ASOS DESIGN harrington jacket with funnel neck in navy | ASOS",
+            "description": "ASOS DESIGN's Navy Harrington Jacket with Funnel Neck - A stylish essential for any wardrobe, combining urban flair with classic design. Stay effortlessly cool and comfortable in this versatile piece.",
+            "price": "30",
+            "quantity": 15,
+            "image": "products_images/4.jpg",
+            "category": 3
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 11,
+        "fields": {
+            "name": "ASOS DESIGN harrington jacket with funnel neck in navy | Cool jackets for men, Mens jackets",
+            "description": "The ASOS DESIGN Harrington Jacket with Funnel Neck in Navy: The epitome of cool and classic men's outerwear. Elevate your style with this versatile and fashionable jacket.",
+            "price": "35",
+            "quantity": 9,
+            "image": "products_images/5.jpg",
+            "category": 1
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 12,
+        "fields": {
+            "name": "ASOS DESIGN Dasha chunky trainers in white | ASOS",
+            "description": "ASOS DESIGN Dasha Chunky Trainers in White – Elevate your street style with these trendy and comfortable white sneakers from ASOS. Perfect for fashion-forward individuals looking for both style and comfort.",
+            "price": "90",
+            "quantity": 20,
+            "image": "products_images/6.jpg",
+            "category": 2
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 13,
+        "fields": {
+            "name": "Asos Design ASOS DESIGN driving shoes in tan soft leather",
+            "description": "ASOS DESIGN Driving Shoes in Tan Soft Leather - Classic and comfortable, these tan leather driving shoes are the perfect blend of style and sophistication, ideal for those who appreciate both luxury and practicality.",
+            "price": "55",
+            "quantity": 3,
+            "image": "products_images/7.jpg",
+            "category": 2
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 14,
+        "fields": {
+            "name": "ASOS DESIGN backpack in colour block | ASOS",
+            "description": "ASOS DESIGN Color Block Backpack - Make a bold statement with this eye-catching backpack that combines fashion and function seamlessly. Perfect for those who want to stand out in style.",
+            "price": "35",
+            "quantity": 17,
+            "image": "products_images/8.jpg",
+            "category": 4
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 15,
+        "fields": {
+            "name": "ASOS DESIGN backpack in black faux leather and front pocket with double straps | ASOS",
+            "description": "ASOS DESIGN Black Faux Leather Backpack with Front Pocket and Double Straps - A sleek and versatile backpack designed for those who appreciate both style and practicality.",
+            "price": "35",
+            "quantity": 12,
+            "image": "products_images/9.jpg",
+            "category": 4
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 16,
+        "fields": {
+            "name": "Asos Design Organic Cotton Relaxed Fit",
+            "description": "ASOS Design Organic Cotton Relaxed Fit T-shirt in Black - Effortlessly stylish and eco-friendly, this relaxed-fit tee features a chest placement print and sleeve stripe, making it a fashionable choice for those who value sustainability and fashion.",
+            "price": "25",
+            "quantity": 7,
+            "image": "products_images/10.jpg",
+            "category": 1
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 18,
+        "fields": {
+            "name": "ASOS DESIGN festival oversized t-shirt in tie-dye wash and fringing",
+            "description": "ASOS DESIGN Festival Oversized T-shirt in Tie-Dye Wash with Fringing - Embrace the festival spirit with this oversized tee featuring a vibrant tie-dye wash and playful fringing. Perfect for those looking to make a statement at any music event.",
+            "price": "20",
+            "quantity": 12,
+            "image": "products_images/11.jpg",
+            "category": 1
+        }
+    },
+    {
+        "model": "products.product",
+        "pk": 19,
+        "fields": {
+            "name": "ASOS DESIGN oversized sweatshirt in collegiate colour block | ASOS |",
+            "description": "ASOS DESIGN Oversized Sweatshirt in Collegiate Colour Block - Stay cozy and on-trend with this oversized sweatshirt featuring a stylish collegiate-inspired color block design. Perfect for adding a sporty-chic touch to your casual wardrobe.",
+            "price": "35",
+            "quantity": 2,
+            "image": "products_images/12.jpg",
+            "category": 3
         }
     }
 ]
