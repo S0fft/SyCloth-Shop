@@ -11,16 +11,16 @@ from users.forms import (EmailVerification, UserLoginForm, UserProfileForm,
 from users.models import User
 
 
-class UserRegistrationView(SuccessMessageMixin, CreateView):
+class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
+    title = 'SyCloth - Registration'
     model = User
     form_class = UserRegistrationForm
     template_name = 'users/registration.html'
-    title = 'SyCloth - Registration'
     success_url = reverse_lazy('users:login')
     success_message = 'Congratulations! You are successfully registered!'
 
 
-class UserProfileView(UpdateView):
+class UserProfileView(TitleMixin, UpdateView):
     title = 'SyCloth - Account'
     model = User
     form_class = UserProfileForm
@@ -28,6 +28,11 @@ class UserProfileView(UpdateView):
 
     def get_success_url(self):
         return reverse_lazy('users:login', args=(self.object.id,))
+
+    def get_context_data(self):
+        context = super().get_context_data()
+
+        return context
 
 
 class UserLoginView(TitleMixin, LoginView):
@@ -38,7 +43,7 @@ class UserLoginView(TitleMixin, LoginView):
 
 class EmailVerificationView(TitleMixin, TemplateView):
     template_name = 'users/email_verification.html'
-    title = 'Store -Email confirmation'
+    title = 'Store - Email Verification'
 
     def get(self, request, *args, **kwargs):
         code = kwargs['code']

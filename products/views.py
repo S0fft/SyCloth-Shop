@@ -9,7 +9,7 @@ from products.models import Basket, Product, ProductCategory
 
 class IndexView(TitleMixin, TemplateView):
     template_name = 'products/index.html'
-    title = 'Store'
+    title = 'SyCloth'
 
     def get_context_data(self):
         context = super().get_context_data()
@@ -18,7 +18,7 @@ class IndexView(TitleMixin, TemplateView):
         return context
 
 
-class ProductsListView(ListView):
+class ProductsListView(TitleMixin, ListView):
     model = Product
     template_name = 'products/products.html'
     context_object_name = 'products'
