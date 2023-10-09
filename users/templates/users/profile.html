@@ -1,9 +1,12 @@
 {% extends 'products/base.html' %}
 {% load static %}
+
+{% block title %} {{ title }} {% endblock title %}
+
 {% block css %}
     <link href="{% static 'vendor/css/profile.css' %}" rel="stylesheet">
 {% endblock %}
-{% block content %}     
+{% block content %}
     <div class="container">
         <div class="row">
             <div class="col-lg-7">
