@@ -11,34 +11,34 @@ from users.forms import (EmailVerification, UserLoginForm, UserProfileForm,
 from users.models import User
 
 
-class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
+class UserRegistrationView(SuccessMessageMixin, CreateView):
     model = User
     form_class = UserRegistrationForm
     template_name = 'users/registration.html'
-    title = 'SyCloth - Регистрация'
+    title = 'SyCloth - Registration'
     success_url = reverse_lazy('users:login')
-    success_message = 'Поздравляем! Вы успешно зарегистрированы!'
+    success_message = 'Congratulations! You are successfully registered!'
 
 
-class UserProfileView(TitleMixin, UpdateView):
+class UserProfileView(UpdateView):
+    title = 'SyCloth - Account'
     model = User
     form_class = UserProfileForm
     template_name = 'users/profile.html'
-    title = 'SyCloth - Личный кабинет'
 
     def get_success_url(self):
-        return reverse_lazy('users:profile', args=(self.object.id,))
+        return reverse_lazy('users:login', args=(self.object.id,))
 
 
 class UserLoginView(TitleMixin, LoginView):
     template_name = 'users/login.html'
     form_class = UserLoginForm
-    title = 'SyCloth - Авторизация'
+    title = 'SyCloth - Authorization'
 
 
 class EmailVerificationView(TitleMixin, TemplateView):
     template_name = 'users/email_verification.html'
-    title = 'Store - подтверждение электронной почты'
+    title = 'Store -Email confirmation'
 
     def get(self, request, *args, **kwargs):
         code = kwargs['code']
