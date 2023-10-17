@@ -1,36 +1,31 @@
-{% extends "products/base.html" %}
+{% extends 'products/base.html' %}
 {% load static %}
 
-{% block title %} {{ title }} {% endblock title %}
-
+{% block title %}
+  {{ title }}
+{% endblock %}
 
 {% block css %}
-<link href="{% static 'vendor/css/index.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/css/index.css' %}" rel="stylesheet" />
 {% endblock %}
 
 {% block content %}
-<section>
-    <!--    <div class="alert alert-light text-center" role="alert">-->
-    <!--        Информационное сообщение-->
-    <!--    </div>-->
+  <section>
+    <!-- <div class="alert alert-light text-center" role="alert"> -->
+    <!-- Информационное сообщение -->
+    <!-- </div> -->
     <div class="container">
-        <div class="row">
-            <div class="col-lg-6">
-                <h1 class="mt-5">SyCloth</h1>
-                <p>
-                   New looks and the best brands on SyCloth.
-                     Free worldwide shipping!
-                    {% if is_prom %}
-                    Outlet: up to -70% Own brand. -20% for new customers.
-                    {% endif %}
-                </p>
-                <button id="start-purchase-btn" type="button" class="btn btn-lg">
-                    <a id="start-purchase-link" href="{% url 'products:index' %}">
-                        Start shopping
-                    </a>
-                </button>
-            </div>
+      <div class="row">
+        <div class="col-lg-6">
+          <h1 class="mt-5">SyCloth</h1>
+          <p>
+            New looks and the best brands on SyCloth. Free worldwide shipping!{% if is_prom %}
+              Outlet: up to -70% Own brand. -20% for new customers.
+            {% endif %}
+          </p>
+          <button id="start-purchase-btn" type="button" class="btn btn-lg"><a id="start-purchase-link" href="{% url 'products:index' %}">Start shopping</a></button>
         </div>
+      </div>
     </div>
-</section>
+  </section>
 {% endblock %}
