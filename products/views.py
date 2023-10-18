@@ -24,7 +24,7 @@ class ProductsListView(TitleMixin, ListView):
     context_object_name = 'products'
     total_lots = Product.objects.all()
     paginate_by = 6
-    title = 'Store - Catalog'
+    title = 'SyCloth - Catalog'
 
     def get_queryset(self):
         queryset = super().get_queryset()

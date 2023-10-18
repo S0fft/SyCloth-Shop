@@ -6,13 +6,12 @@ from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView
 
 from common.views import TitleMixin
-from users.forms import (EmailVerification, UserLoginForm, UserProfileForm,
-                         UserRegistrationForm)
+from users.forms import EmailVerification, UserLoginForm, UserProfileForm, UserRegistrationForm
 from users.models import User
 
 
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
-    title = 'SyCloth - Registration'
+    title = 'SyCloth - Registration',
     model = User
     form_class = UserRegistrationForm
     template_name = 'users/registration.html'

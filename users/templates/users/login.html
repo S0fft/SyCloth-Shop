@@ -12,11 +12,7 @@
       <div class="row justify-content-center">
         <div class="col-lg-5">
           {% if messages or form.non_field_errors %}
-            <div class="alert {% if messages %}
-
-              {% endif %} alert-dismissible fade show"
-              role="alert"
-              style="margin-top: 50px">
+            <div class="alert {% if messages %}{% endif %} alert-dismissible fade show" role="alert" style="margin-top: 50px">
               {% if messages %}
                 {% for message in messages %}
                   {{ message }}
