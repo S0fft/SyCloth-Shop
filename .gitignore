@@ -7,6 +7,7 @@ db.sqlite3
 media
 .store-template-course
 .vscode
+.idea
 
 # Backup files
 *.bak
