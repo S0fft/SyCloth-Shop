@@ -12,7 +12,7 @@ from users.models import User
 
 
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
-    title = 'SyCloth - Registration',
+    title = 'SyCloth - Registration'
     model = User
     form_class = UserRegistrationForm
     template_name = 'users/registration.html'
@@ -29,7 +29,7 @@ class UserProfileView(TitleMixin, UpdateView):
     def get_success_url(self):
         return reverse_lazy('users:login', args=(self.object.id,))
 
-    def get_context_data(self):
+    def get_context_data(self, **kwargs):
         context = super().get_context_data()
 
         return context
