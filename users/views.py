@@ -36,14 +36,14 @@ class UserProfileView(TitleMixin, UpdateView):
 
 
 class UserLoginView(TitleMixin, LoginView):
-    template_name = 'users/login.html'
-    form_class = UserLoginForm
     title = 'SyCloth - Authorization'
+    form_class = UserLoginForm
+    template_name = 'users/login.html'
 
 
 class EmailVerificationView(TitleMixin, TemplateView):
+    title = 'SyCloth - Email Verification'
     template_name = 'users/email_verification.html'
-    title = 'Store - Email Verification'
 
     def get(self, request, *args, **kwargs):
         code = kwargs['code']
