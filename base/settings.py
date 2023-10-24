@@ -2,17 +2,17 @@ from pathlib import Path
 
 from decouple import config
 
-BASE_DIR = Path(__file__).resolve().parent.parent
+BASE_DIR: str = Path(__file__).resolve().parent.parent
 
-SECRET_KEY = config('SECRET_KEY')
+SECRET_KEY: str = config('SECRET_KEY')
 
-DEBUG = config('DEBUG', cast=bool)
+DEBUG: bool = config('DEBUG', cast=bool)
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS: list[str] = []
 
-DOMAIN_NAME = 'http://localhost:8000'
+DOMAIN_NAME: str = 'http://localhost:8000'
 
-INSTALLED_APPS = [
+INSTALLED_APPS: list[str] = [
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
@@ -31,7 +31,7 @@ INSTALLED_APPS = [
     'users',
 ]
 
-MIDDLEWARE = [
+MIDDLEWARE: list[str] = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
@@ -43,9 +43,9 @@ MIDDLEWARE = [
     "allauth.account.middleware.AccountMiddleware",
 ]
 
-ROOT_URLCONF = 'base.urls'
+ROOT_URLCONF: str = 'base.urls'
 
-TEMPLATES = [
+TEMPLATES: list[dict[str, any]] = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [],
@@ -63,9 +63,9 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'base.wsgi.application'
+WSGI_APPLICATION: str = 'base.wsgi.application'
 
-DATABASES = {
+DATABASES: dict[str, str | bool] = {
     'default': {
         'ENGINE': config('ENGINE'),
         'NAME': config('NAME'),
@@ -76,7 +76,7 @@ DATABASES = {
     }
 }
 
-AUTH_PASSWORD_VALIDATORS = [
+AUTH_PASSWORD_VALIDATORS: list[dict[str, str]] = [
     {
         'NAME': 'django.contrib.auth.password_validation.UserAttributeSimilarityValidator',
     },
@@ -91,51 +91,51 @@ AUTH_PASSWORD_VALIDATORS = [
     },
 ]
 
-LANGUAGE_CODE = 'en-en'
+LANGUAGE_CODE: str = 'en-en'
 
-TIME_ZONE = 'UTC'
+TIME_ZONE: str = 'UTC'
 
-USE_I18N = True
+USE_I18N: bool = True
 
-USE_L10N = True
+USE_L10N: bool = True
 
-USE_TZ = True
+USE_TZ: bool = True
 
-STATIC_URL = '/static/'
+STATIC_URL: str = '/static/'
 
-STATICFILES_DIRS = [
+STATICFILES_DIRS: list[str] = [
     BASE_DIR / 'static',
 ]
 
-MEDIA_URL = '/media/'
+MEDIA_URL: str = '/media/'
 
-MEDIA_ROOT = BASE_DIR / 'media'
+MEDIA_ROOT: str = BASE_DIR / 'media'
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+DEFAULT_AUTO_FIELD: str = 'django.db.models.BigAutoField'
 
-AUTH_USER_MODEL = 'users.User'
+AUTH_USER_MODEL: str = 'users.User'
 
-LOGIN_URL = '/users/login/'
+LOGIN_URL: str = '/users/login/'
 
-LOGIN_REDIRECT_URL = '/'
+LOGIN_REDIRECT_URL: str = '/'
 
-LOGOUT_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL: str = '/'
 
-EMAIL_HOST = config('EMAIL_HOST')
-EMAIL_PORT = config('EMAIL_PORT')
-EMAIL_HOST_USER = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_SSL = config('EMAIL_USE_SSL', cast=bool)
+EMAIL_HOST: str = config('EMAIL_HOST')
+EMAIL_PORT: str = config('EMAIL_PORT')
+EMAIL_HOST_USER: str = config('EMAIL_HOST_USER')
+EMAIL_HOST_PASSWORD: str = config('EMAIL_HOST_PASSWORD')
+EMAIL_USE_SSL: bool = config('EMAIL_USE_SSL', cast=bool)
 
 
-AUTHENTICATION_BACKENDS = [
+AUTHENTICATION_BACKENDS: list[str] = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
-SITE_ID = 1
+SITE_ID: int = 1
 
-SOCIALACCOUNT_PROVIDERS = {
+SOCIALACCOUNT_PROVIDERS: dict[str, dict[list[str]]] = {
     'github': {
         'SCOPE': [
             'user',
