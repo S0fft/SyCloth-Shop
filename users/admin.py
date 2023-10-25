@@ -6,12 +6,12 @@ from users.models import EmailVerification, User
 
 @admin.register(User)
 class UserAdmin(admin.ModelAdmin):
-    list_display = ['username', 'email', 'image']
+    list_display: list[str] = ['username', 'email', 'image']
     inlines = [BasketAdmin]
 
 
 @admin.register(EmailVerification)
 class EmailVerificationAdmin(admin.ModelAdmin):
-    list_display = ['code', 'user', 'expiration']
-    fields = ['code', 'user', 'expiration', 'created']
-    readonly_fields = ['created']
+    list_display: list[str] = ['code', 'user', 'expiration']
+    fields: list[str] = ['code', 'user', 'expiration', 'created']
+    readonly_fields: list[str] = ['created']
