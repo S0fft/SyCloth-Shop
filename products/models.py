@@ -4,51 +4,51 @@ from users.models import User
 
 
 class ProductCategory(models.Model):
-    name = models.CharField(max_length=128, unique=True)
-    description = models.TextField(null=True, blank=True)
+    name: str = models.CharField(max_length=128, unique=True)
+    description: str = models.TextField(null=True, blank=True)
 
     class Meta:
-        verbose_name = 'category'
-        verbose_name_plural = 'categories'
+        verbose_name: str = 'category'
+        verbose_name_plural: str = 'categories'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return self.name
 
 
 class Product(models.Model):
-    name = models.CharField(max_length=256)
-    description = models.TextField()
-    price = models.DecimalField(max_digits=10, decimal_places=0)
-    quantity = models.PositiveSmallIntegerField(default=0)
+    name: str = models.CharField(max_length=256)
+    description: str = models.TextField()
+    price: int = models.DecimalField(max_digits=10, decimal_places=0)
+    quantity: int = models.PositiveSmallIntegerField(default=0)
+    category: str = models.ForeignKey(to=ProductCategory, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products_images')
-    category = models.ForeignKey(to=ProductCategory, on_delete=models.CASCADE)
 
     class Meta:
-        verbose_name = 'product'
-        verbose_name_plural = 'products'
+        verbose_name: str = 'product'
+        verbose_name_plural: str = 'products'
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Product: {self.name} | Category: {self.category.name}'
 
 
 class BasketQuerySet(models.QuerySet):
-    def total_sum(self):
+    def total_sum(self) -> int:
         return sum(basket.sum() for basket in self)
 
-    def total_quantity(self):
+    def total_quantity(self) -> int:
         return sum(basket.quantity for basket in self)
 
 
 class Basket(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
-    product = models.ForeignKey(to=Product, on_delete=models.CASCADE)
-    quantity = models.PositiveSmallIntegerField(default=0)
+    product: str = models.ForeignKey(to=Product, on_delete=models.CASCADE)
+    quantity: int = models.PositiveSmallIntegerField(default=0)
     created_timestamp = models.DateTimeField(auto_now_add=True)
 
     objects = BasketQuerySet.as_manager()
 
-    def __str__(self):
+    def __str__(self) -> str:
         return f'Корзина для {self.user.username} | Продукт: {self.product.name}'
 
-    def sum(self):
+    def sum(self) -> int:
         return self.product.price * self.quantity
