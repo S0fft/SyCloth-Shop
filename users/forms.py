@@ -22,7 +22,7 @@ class UserLoginForm(AuthenticationForm):
 
     class Meta:
         model = User
-        fields = ['username', 'password']
+        fields: list[str] = ['username', 'password']
 
 
 class UserRegistrationForm(UserCreationForm):
@@ -53,9 +53,9 @@ class UserRegistrationForm(UserCreationForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
+        fields: list[str] = ['first_name', 'last_name', 'username', 'email', 'password1', 'password2']
 
-    def save(self, commit=True):
+    def save(self, commit: bool = True):
         user = super().save(commit=True)
         expiration = now() + timedelta(hours=48)
         record = EmailVerification.objects.create(code=uuid.uuid4(), user=user, expiration=expiration)
@@ -85,4 +85,4 @@ class UserProfileForm(UserChangeForm):
 
     class Meta:
         model = User
-        fields = ['first_name', 'last_name', 'image', 'username', 'email']
+        fields: list[str] = ['first_name', 'last_name', 'image', 'username', 'email']
