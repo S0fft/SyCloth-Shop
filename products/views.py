@@ -39,7 +39,7 @@ class ProductsListView(TitleMixin, ListView):
 
 
 @login_required
-def basket_add(request, product_id):
+def basket_add(request, product_id: int):
     product = Product.objects.get(id=product_id)
     baskets = Basket.objects.filter(user=request.user, product=product)
 
@@ -54,7 +54,7 @@ def basket_add(request, product_id):
 
 
 @login_required
-def basket_remove(request, basket_id):
+def basket_remove(request, basket_id: int):
     basket = Basket.objects.get(id=basket_id)
     basket.delete()
 
