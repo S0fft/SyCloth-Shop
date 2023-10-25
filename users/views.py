@@ -12,40 +12,40 @@ from users.models import User
 
 
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
-    title = 'SyCloth - Registration'
+    title: str = 'SyCloth - Registration'
     model = User
     form_class = UserRegistrationForm
-    template_name = 'users/registration.html'
-    success_url = reverse_lazy('users:login')
-    success_message = 'Congratulations! You are successfully registered!'
+    template_name: str = 'users/registration.html'
+    success_url: str = reverse_lazy('users:login')
+    success_message: str = 'Congratulations! You are successfully registered!'
 
 
 class UserProfileView(TitleMixin, UpdateView):
-    title = 'SyCloth - Account'
+    title: str = 'SyCloth - Account'
     model = User
     form_class = UserProfileForm
-    template_name = 'users/profile.html'
+    template_name: str = 'users/profile.html'
 
-    def get_success_url(self):
+    def get_success_url(self) -> str:
         return reverse_lazy('users:login', args=(self.object.id,))
 
-    def get_context_data(self, **kwargs):
+    def get_context_data(self, **kwargs: dict[str, any]) -> dict[str, any]:
         context = super().get_context_data()
 
         return context
 
 
 class UserLoginView(TitleMixin, LoginView):
-    title = 'SyCloth - Authorization'
+    title: str = 'SyCloth - Authorization'
     form_class = UserLoginForm
-    template_name = 'users/login.html'
+    template_name: str = 'users/login.html'
 
 
 class EmailVerificationView(TitleMixin, TemplateView):
-    title = 'SyCloth - Email Verification'
-    template_name = 'users/email_verification.html'
+    title: str = 'SyCloth - Email Verification'
+    template_name: str = 'users/email_verification.html'
 
-    def get(self, request, *args, **kwargs):
+    def get(self, request, *args: any, **kwargs: dict[str, any]):
         code = kwargs['code']
         user = User.objects.get(email=kwargs['email'])
         email_verifications = EmailVerification.objects.filter(user=user, code=code)
