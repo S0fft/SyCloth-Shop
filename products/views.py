@@ -8,33 +8,32 @@ from products.models import Basket, Product, ProductCategory
 
 
 class IndexView(TitleMixin, TemplateView):
-    template_name = 'products/index.html'
-    title = 'SyCloth'
+    template_name: int = 'products/index.html'
+    title: int = 'SyCloth'
 
-    def get_context_data(self):
+    def get_context_data(self) -> dict[str, any]:
         context = super().get_context_data()
-        context['is_prom'] = True
+        context['is_prom']: bool = True
 
         return context
 
 
 class ProductsListView(TitleMixin, ListView):
+    title: str = 'SyCloth - Catalog'
     model = Product
-    template_name = 'products/products.html'
-    context_object_name = 'products'
-    total_lots = Product.objects.all()
-    paginate_by = 6
-    title = 'SyCloth - Catalog'
+    template_name: str = 'products/products.html'
+    context_object_name: str = 'products'
+    paginate_by: int = 6
 
     def get_queryset(self):
         queryset = super().get_queryset()
-        category_id = self.kwargs.get('category_id')
+        category_id: int = self.kwargs.get('category_id')
 
         return queryset.filter(category_id=category_id) if category_id else queryset
 
-    def get_context_data(self):
+    def get_context_data(self) -> dict[str, any]:
         context = super().get_context_data()
-        context['categories'] = ProductCategory.objects.all()
+        context['categories']: str = ProductCategory.objects.all()
 
         return context
 
