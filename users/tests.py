@@ -11,16 +11,16 @@ from django.urls import reverse
 
 class UserRegistrationViewTestCase(TestCase):
 
-    def setUp(self):
-        self.data = {
+    def setUp(self) -> None:
+        self.data: dict[str, str] = {
             'first_name': 'name', 'last_name': 'surname',
             'username': 'uname', 'email': 'testmail123.@gmail.com',
             'password1': '654321qQ', 'password2': '654321qQ'
         }
-        self.path = reverse('users:registration')
+        self.path: str = reverse('users:registration')
 
     def test_user_registration_get(self):
-        response = self.client.get(self.path)
+        response: str = self.client.get(self.path)
         self.assertEqual(response.status_code, HTTPStatus.OK)
 
         self.assertEqual(response.context_data['title'], 'SyCloth - Registration')
