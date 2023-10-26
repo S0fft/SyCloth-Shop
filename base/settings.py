@@ -26,6 +26,7 @@ INSTALLED_APPS: list[str] = [
     'allauth.socialaccount',
     'allauth.socialaccount.providers.github',
 
+    "debug_toolbar",
 
     'products',
     'users',
@@ -41,6 +42,8 @@ MIDDLEWARE: list[str] = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
     "allauth.account.middleware.AccountMiddleware",
+
+    "debug_toolbar.middleware.DebugToolbarMiddleware",
 ]
 
 ROOT_URLCONF: str = 'base.urls'
@@ -64,6 +67,11 @@ TEMPLATES: list[dict[str, any]] = [
 ]
 
 WSGI_APPLICATION: str = 'base.wsgi.application'
+
+INTERNAL_IPS = [
+    '127.0.0.1',
+    'localhost',
+]
 
 DATABASES: dict[str, str | bool] = {
     'default': {
