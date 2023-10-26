@@ -25,6 +25,7 @@ class UserRegistrationViewTestCase(TestCase):
         self.assertEqual(response.context_data['title'], 'SyCloth - Registration')
         self.assertTemplateUsed(response, 'users/registration.html')
 
+    # allauth.socialaccount.models.SocialApp.DoesNotExist
     def test_user_registration_post_success(self) -> None:
         username: str = self.data['username']
         self.assertFalse(User.objects.filter(username=username).exists())
@@ -40,3 +41,10 @@ class UserRegistrationViewTestCase(TestCase):
             email_verification.first().expiration.date(),
             (now() + timedelta(hours=48)).date()
         )
+
+    def test_user_registration_post_error(self) -> None:
+        User.objects.create(username=self.data['username'])
+        response: str = self.client.post(self.path, self.data)
+
+        self.assertEqual(response.status_code, HTTPStatus.OK)
+        self.assertContains(response, 'A user with that username already exists.', html=True)
