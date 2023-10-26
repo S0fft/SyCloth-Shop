@@ -26,9 +26,9 @@ class UserRegistrationViewTestCase(TestCase):
         self.assertTemplateUsed(response, 'users/registration.html')
 
     def test_user_registration_post_success(self) -> None:
-        username = self.data['username']
+        username: str = self.data['username']
         self.assertFalse(User.objects.filter(username=username).exists())
-        response = self.client.post(self.path, self.data)
+        response: str = self.client.post(self.path, self.data)
 
         self.assertEqual(response.status_code, HTTPStatus.FOUND)
         self.assertRedirects(response, reverse('users:login'))
