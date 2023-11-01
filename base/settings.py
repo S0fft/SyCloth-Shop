@@ -29,6 +29,7 @@ INSTALLED_APPS: list[str] = [
     'debug_toolbar',
 
     'products',
+    'orders'
     'users',
 ]
 
