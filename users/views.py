@@ -11,6 +11,12 @@ from users.forms import (EmailVerification, UserLoginForm, UserProfileForm,
 from users.models import User
 
 
+class UserLoginView(TitleMixin, LoginView):
+    title: str = 'SyCloth - Authorization'
+    form_class = UserLoginForm
+    template_name: str = 'users/login.html'
+
+
 class UserRegistrationView(TitleMixin, SuccessMessageMixin, CreateView):
     title: str = 'SyCloth - Registration'
     model = User
@@ -28,17 +34,6 @@ class UserProfileView(TitleMixin, UpdateView):
 
     def get_success_url(self) -> str:
         return reverse_lazy('users:login', args=(self.object.id,))
-
-    def get_context_data(self, **kwargs: dict[str, any]) -> dict[str, any]:
-        context = super().get_context_data()
-
-        return context
-
-
-class UserLoginView(TitleMixin, LoginView):
-    title: str = 'SyCloth - Authorization'
-    form_class = UserLoginForm
-    template_name: str = 'users/login.html'
 
 
 class EmailVerificationView(TitleMixin, TemplateView):
