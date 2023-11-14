@@ -5,6 +5,6 @@ from orders.forms import OrderForm
 
 
 class OrderCreateView(TitleMixin, CreateView):
-    title = 'SyCloth - Placing an order'
-    template_name = 'orders/order-create.html'
+    title: str = 'SyCloth - Placing an order'
+    template_name: str = 'orders/order-create.html'
     form_class = OrderForm
