@@ -10,7 +10,7 @@ DEBUG: bool = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS: list[str] = []
 
-DOMAIN_NAME: str = 'http://localhost:8000'
+DOMAIN_NAME: str = 'http://127.0.0.1:8000'
 
 INSTALLED_APPS: list[str] = [
     'django.contrib.admin',
@@ -147,7 +147,6 @@ EMAIL_HOST_USER: str = config('EMAIL_HOST_USER')
 EMAIL_HOST_PASSWORD: str = config('EMAIL_HOST_PASSWORD')
 EMAIL_USE_SSL: bool = config('EMAIL_USE_SSL', cast=bool)
 
-
 AUTHENTICATION_BACKENDS: list[str] = [
     'django.contrib.auth.backends.ModelBackend',
     'allauth.account.auth_backends.AuthenticationBackend',
@@ -165,3 +164,6 @@ SOCIALACCOUNT_PROVIDERS: dict[str, dict[list[str]]] = {
 
 CELERY_BROKER_URL: str = 'redis://127.0.0.1:6379'
 CELERY_RESULT_BACKEND: str = 'redis://127.0.0.1:6379'
+
+STRIPE_PUBLIC_KEY: str = config('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET: str = config('STRIPE_SECRET')
