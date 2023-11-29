@@ -14,17 +14,17 @@ stripe.api_key = settings.STRIPE_SECRET
 
 
 class SuccessTemplateView(TitleMixin, TemplateView):
-    template_name = 'orders/success.html'
-    title = 'Thank you for your order!'
+    template_name: str = 'orders/success.html'
+    title: str = 'Thank you for your order!'
 
 
 class CanceledTemplateView(TemplateView):
-    template_name = 'orders/canceled.html'
+    template_name: str = 'orders/canceled.html'
 
 
 class OrderCreateView(TitleMixin, CreateView):
-    title = 'SyCloth - Placing an order'
-    template_name = 'orders/order-create.html'
+    title: str = 'SyCloth - Placing an order'
+    template_name: str = 'orders/order-create.html'
     form_class = OrderForm
     success_url = reverse_lazy('orders:order_create')
 
