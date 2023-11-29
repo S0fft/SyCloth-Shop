@@ -28,7 +28,7 @@ class OrderCreateView(TitleMixin, CreateView):
     form_class = OrderForm
     success_url = reverse_lazy('orders:order_create')
 
-    def post(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs) -> HttpResponseRedirect:
         super().post(request, *args, **kwargs)
         checkout_session = stripe.checkout.Session.create(
             line_items=[
@@ -41,6 +41,7 @@ class OrderCreateView(TitleMixin, CreateView):
             success_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:order_success')),
             cancel_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:order_canceled')),
         )
+
         return HttpResponseRedirect(checkout_session.url, status=HTTPStatus.SEE_OTHER)
 
     def form_valid(self, form):
