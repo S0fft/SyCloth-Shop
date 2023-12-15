@@ -5,7 +5,7 @@ from orders.models import Order
 
 @admin.register(Order)
 class OrderAdmin(admin.ModelAdmin):
-    list_display: list[str] = ('__str__', 'status', 'created')
+    list_display: list[str] = ('__str__', 'status', 'created', 'address')
     fields: list[str] = (
         'id', 'created',
         ('first_name', 'last_name'),
