@@ -2,11 +2,13 @@ from http import HTTPStatus
 
 import stripe
 from django.conf import settings
-from django.http import HttpResponseRedirect
+from django.http import HttpResponse, HttpResponseRedirect
 from django.urls import reverse, reverse_lazy
+from django.views.decorators.csrf import csrf_exempt
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView
 
+from base import settings
 from common.views import TitleMixin
 from orders.forms import OrderForm
 
@@ -37,6 +39,7 @@ class OrderCreateView(TitleMixin, CreateView):
                     'quantity': 1,
                 },
             ],
+            metadata={'order_id': self.object.id},
             mode='payment',
             success_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:order_success')),
             cancel_url='{}{}'.format(settings.DOMAIN_NAME, reverse('orders:order_canceled')),
@@ -48,3 +51,37 @@ class OrderCreateView(TitleMixin, CreateView):
         form.instance.initiator = self.request.user
 
         return super().form_valid(form)
+
+
+@csrf_exempt
+def stripe_webhook_view(request):
+    payload = request.body
+    sig_header = request.META['HTTP_STRIPE_SIGNATURE']
+    event = None
+
+    try:
+        event = stripe.Webhook.construct_event(
+            payload, sig_header, settings.STRIPE_WEBHOOK_SECRET
+        )
+    except ValueError as e:
+        return HttpResponse(status=400)
+
+    except stripe.error.SignatureVerificationError as e:
+        return HttpResponse(status=400)
+
+    if event['type'] == 'checkout.session.completed':
+        session = stripe.checkout.Session.retrieve(
+            event['data']['object']['id'],
+            expand=['line_items'],
+        )
+
+    line_items = session.line_items
+    fulfill_order(line_items)
+
+    return HttpResponse(status=200)
+
+
+def fulfill_order(session):
+    order_id = int(session.metadata.order_id)
+
+    print("Fulfilling order")
