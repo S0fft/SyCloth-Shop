@@ -9,8 +9,8 @@ from products.models import Basket, Product, ProductCategory
 
 
 class IndexView(TitleMixin, TemplateView):
-    template_name: int = 'products/index.html'
-    title: int = 'SyCloth'
+    template_name: str = 'products/index.html'
+    title: str = 'SyCloth'
 
     def get_context_data(self) -> dict[str, any]:
         context = super().get_context_data()
