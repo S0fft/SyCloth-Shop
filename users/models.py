@@ -37,7 +37,7 @@ class EmailVerification(models.Model):
                 fail_silently=False,
             )
         except SMTPException as e:
-            print(f"!---Error sending email: {e}---!")
+            print(f"!!!---Error sending email: {e}---!!!")
 
     def is_expired(self) -> bool:
-        return True if now() >= self.expiration else False
+        return True if now() >= self.expiration_time else False
