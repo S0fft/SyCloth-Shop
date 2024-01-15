@@ -1,3 +1,5 @@
+from smtplib import SMTPException
+
 from django.conf import settings
 from django.contrib.auth.models import AbstractUser
 from django.core.mail import send_mail
@@ -26,13 +28,16 @@ class EmailVerification(models.Model):
         subject: str = f'Confirmation of the account for {self.user.username}'
         message: str = f'To confirm the account {self.user.email} follow this link {verification_link}'
 
-        send_mail(
-            subject=subject,
-            message=message,
-            from_email=settings.EMAIL_HOST_USER,
-            recipient_list=[self.user.email],
-            fail_silently=False,
-        )
+        try:
+            send_mail(
+                subject=subject,
+                message=message,
+                from_email=settings.EMAIL_HOST_USER,
+                recipient_list=[self.user.email],
+                fail_silently=False,
+            )
+        except SMTPException as e:
+            print(f"!---Error sending email: {e}---!")
 
     def is_expired(self) -> bool:
         return True if now() >= self.expiration else False
