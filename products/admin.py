@@ -8,7 +8,7 @@ admin.site.register(ProductCategory)
 @admin.register(Product)
 class ProductAdmin(admin.ModelAdmin):
     list_display: list[str] = ['name', 'price', 'quantity', 'category']
-    fields: list[str] = ['image', 'name', 'description', ('price', 'quantity'), 'category']
+    fields: list[str] = ['image', 'name', 'description', ('price', 'quantity'), 'stripe_product_price_id', 'category']
     search_fields: list[str] = ['name', 'category__name']
     ordering: list[str] = ['name']
 
