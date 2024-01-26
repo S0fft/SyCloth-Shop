@@ -4,11 +4,11 @@ from users.models import User
 
 
 class Order(models.Model):
-    CREATED = 0
-    PAID = 1
-    ON_WAY = 2
-    DELIVERED = 3
-    STATUSES = (
+    CREATED: int = 0
+    PAID: int = 1
+    ON_WAY: int = 2
+    DELIVERED: int = 3
+    STATUSES: list[list] = (
         (CREATED, 'Created'),
         (PAID, 'Paid'),
         (ON_WAY, 'On way'),
@@ -25,4 +25,4 @@ class Order(models.Model):
     initiator = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
-        return f"Order #{self.id}. For: {self.first_name} {self.last_name}"
+        return f"Order №{self.id}. For: {self.first_name} {self.last_name}"
