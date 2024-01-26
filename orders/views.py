@@ -11,6 +11,7 @@ from django.views.generic.edit import CreateView
 from base import settings
 from common.views import TitleMixin
 from orders.forms import OrderForm
+from orders.models import Order
 from products.models import Basket
 
 stripe.api_key: str = settings.STRIPE_SECRET
@@ -67,13 +68,9 @@ def stripe_webhook_view(request):
         return HttpResponse(status=400)
 
     if event['type'] == 'checkout.session.completed':
-        session = stripe.checkout.Session.retrieve(
-            event['data']['object']['id'],
-            expand=['line_items'],
-        )
+        session = event['data']['object']
 
-    line_items = session.line_items
-    fulfill_order(line_items)
+        fulfill_order(session)
 
     return HttpResponse(status=200)
 
@@ -81,4 +78,5 @@ def stripe_webhook_view(request):
 def fulfill_order(session):
     order_id: int = int(session.metadata.order_id)
 
-    print("Fulfilling order")
+    order: int = Order.objects.get(id=order_id)
+    order.update_after_payment()
