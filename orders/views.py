@@ -13,7 +13,7 @@ from common.views import TitleMixin
 from orders.forms import OrderForm
 from products.models import Basket
 
-stripe.api_key = settings.STRIPE_SECRET
+stripe.api_key: str = settings.STRIPE_SECRET
 
 
 class SuccessTemplateView(TitleMixin, TemplateView):
@@ -29,7 +29,7 @@ class OrderCreateView(TitleMixin, CreateView):
     title: str = 'SyCloth - Placing an order'
     template_name: str = 'orders/order-create.html'
     form_class = OrderForm
-    success_url = reverse_lazy('orders:order_create')
+    success_url: str = reverse_lazy('orders:order_create')
 
     def post(self, request, *args, **kwargs) -> HttpResponseRedirect:
         super().post(request, *args, **kwargs)
@@ -79,6 +79,6 @@ def stripe_webhook_view(request):
 
 
 def fulfill_order(session):
-    order_id = int(session.metadata.order_id)
+    order_id: int = int(session.metadata.order_id)
 
     print("Fulfilling order")
