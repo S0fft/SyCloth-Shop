@@ -6,7 +6,7 @@ from django.db import models
 
 from users.models import User
 
-stripe.api_key = settings.STRIPE_SECRET
+stripe.api_key: str = settings.STRIPE_SECRET
 
 
 class ProductCategory(models.Model):
@@ -49,7 +49,7 @@ class Product(models.Model):
 
         super(Product, self).save(force_insert=False, force_update=False, using=None, )
 
-    def create_stripe_product_price(self):
+    def create_stripe_product_price(self) -> float:
         stripe_product = stripe.Product.create(name=self.name)
         stripe_product_price = stripe.Price.create(
             product=stripe_product['id'], unit_amount=round(self.price * 100), currency='usd')
@@ -64,8 +64,8 @@ class BasketQuerySet(models.QuerySet):
     def total_quantity(self) -> int:
         return sum(basket.quantity for basket in self)
 
-    def stripe_products(self):
-        line_items = []
+    def stripe_products(self) -> list:
+        line_items: list = []
 
         for basket in self:
             item = {
