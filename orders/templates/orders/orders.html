@@ -1,4 +1,5 @@
 {% extends 'products/base.html' %}
+{% load humanize %}
 
 {% comment %} {% block title %}
   {{ title }}
@@ -21,33 +22,17 @@
               </tr>
             </thead>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Paid</td>
-                <td>21 Aug. 21 years old</td>
-                <td>$150</td>
-                <td>
-                  <a href="order.html">view</a>
-                </td>
-              </tr>
-              <tr class="table-success">
-                <th scope="row">2</th>
-                <td>Delivered</td>
-                <td>July 16, 21</td>
-                <td>$200</td>
-                <td>
-                  <a href="order.html">view</a>
-                </td>
-              </tr>
-              <tr class="table-info">
-                <th scope="row">3</th>
-                <td>On the way</td>
-                <td>14 Nov. 21 years old</td>
-                <td>$250</td>
-                <td>
-                  <a href="order.html">view</a>
-                </td>
-              </tr>
+              {% for order in orders %}
+                <tr>
+                  <th scope="row">{{ order.id }}</th>
+                  <td>{{ order.get_status_display }}</td>
+                  <td>{{ order.created|naturaltime }}</td>
+                  <td>${{ order.basket_history.total_sum|intcomma }}</td>
+                  <td>
+                    <a href="order.html">View</a>
+                  </td>
+                </tr>
+              {% endfor %}
             </tbody>
           </table>
         </div>
