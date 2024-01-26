@@ -30,24 +30,24 @@ class CanceledTemplateView(TemplateView):
 
 
 class OrderListView(TitleMixin, ListView):
-    title = 'SyCloth - Orders'
-    template_name = 'orders/orders.html'
+    title: str = 'SyCloth - Orders'
+    template_name: str = 'orders/orders.html'
     context_object_name: str = 'orders'
-    queryset = Order.objects.all()
-    ordering = ('created')
+    queryset: list = Order.objects.all()
+    ordering: str = ('created')
 
-    def get_queryset(self):
+    def get_queryset(self) -> list[str]:
         queryset = super().get_queryset()
         return queryset.filter(initiator=self.request.user)
 
 
 class OrderDetailView(DetailView):
-    template_name = 'orders/order.html'
+    template_name: str = 'orders/order.html'
     model = Order
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context['title'] = f'SyCloth - Order № {self.object.id}'
+        context['title']: str = f'SyCloth - Order № {self.object.id}'
 
         return context
 
