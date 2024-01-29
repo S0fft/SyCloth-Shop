@@ -28,6 +28,7 @@ INSTALLED_APPS: list[str] = [
     'allauth.socialaccount.providers.github',
 
     'debug_toolbar',
+    'django_extensions',
 
     'products',
     'orders',
