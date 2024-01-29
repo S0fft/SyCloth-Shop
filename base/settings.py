@@ -131,6 +131,13 @@ STATICFILES_DIRS: list[str] = [
     BASE_DIR / 'static',
 ]
 
+if DEBUG:
+    STATICFILES_DIRS: list[str] = [
+        BASE_DIR / 'static',
+    ]
+else:
+    STATIC_ROOT: str = BASE_DIR / 'static'
+
 MEDIA_URL: str = '/media/'
 
 MEDIA_ROOT: str = BASE_DIR / 'media'
