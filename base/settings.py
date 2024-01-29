@@ -10,7 +10,7 @@ DEBUG: bool = config('DEBUG', cast=bool)
 
 ALLOWED_HOSTS: list[str] = []
 
-DOMAIN_NAME: str = 'http://127.0.0.1:8000'
+DOMAIN_NAME: str = config('DOMAIN_NAME')
 
 INSTALLED_APPS: list[str] = [
     'django.contrib.admin',
@@ -75,10 +75,13 @@ INTERNAL_IPS = [
     'localhost',
 ]
 
+REDIS_HOST: str = config('REDIS_HOST')
+REDIS_PORT: str = config('REDIS_PORT')
+
 CACHES = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
-        'LOCATION': 'redis://127.0.0.1:6379/1',
+        'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/1',
         'OPTIONS': {
             'CLIENT_CLASS': 'django_redis.client.DefaultClient',
         }
@@ -141,11 +144,14 @@ LOGIN_REDIRECT_URL: str = '/'
 
 LOGOUT_REDIRECT_URL: str = '/'
 
-EMAIL_HOST: str = config('EMAIL_HOST')
-EMAIL_PORT: str = config('EMAIL_PORT')
-EMAIL_HOST_USER: str = config('EMAIL_HOST_USER')
-EMAIL_HOST_PASSWORD: str = config('EMAIL_HOST_PASSWORD')
-EMAIL_USE_SSL: bool = config('EMAIL_USE_SSL', cast=bool)
+if DEBUG:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+else:
+    EMAIL_HOST: str = config('EMAIL_HOST')
+    EMAIL_PORT: str = config('EMAIL_PORT')
+    EMAIL_HOST_USER: str = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD: str = config('EMAIL_HOST_PASSWORD')
+    EMAIL_USE_SSL: bool = config('EMAIL_USE_SSL', cast=bool)
 
 AUTHENTICATION_BACKENDS: list[str] = [
     'django.contrib.auth.backends.ModelBackend',
@@ -162,8 +168,8 @@ SOCIALACCOUNT_PROVIDERS: dict[str, dict[list[str]]] = {
     }
 }
 
-CELERY_BROKER_URL: str = 'redis://127.0.0.1:6379'
-CELERY_RESULT_BACKEND: str = 'redis://127.0.0.1:6379'
+CELERY_BROKER_URL: str = f'redis://{REDIS_HOST}:{REDIS_PORT}'
+CELERY_RESULT_BACKEND: str = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 
 STRIPE_PUBLIC_KEY: str = config('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET: str = config('STRIPE_SECRET')
