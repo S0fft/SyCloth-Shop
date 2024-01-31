@@ -29,6 +29,7 @@ INSTALLED_APPS: list[str] = [
 
     'debug_toolbar',
     'django_extensions',
+    'rest_framework',
 
     'products',
     'orders',
@@ -153,7 +154,7 @@ LOGIN_REDIRECT_URL: str = '/'
 LOGOUT_REDIRECT_URL: str = '/'
 
 if DEBUG:
-    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    EMAIL_BACKEND: str = 'django.core.mail.backends.console.EmailBackend'
 else:
     EMAIL_HOST: str = config('EMAIL_HOST')
     EMAIL_PORT: str = config('EMAIL_PORT')
