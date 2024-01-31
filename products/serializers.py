@@ -4,8 +4,8 @@ from products.models import Product
 
 
 class ProductSerializer(serializers.ModelSerializer):
-    category = serializers.SlugRelatedField(slug_field='name', read_only=True)
+    category: str = serializers.SlugRelatedField(slug_field='name', read_only=True)
 
     class Meta:
         model = Product
-        fields = ['id', 'name', 'description', 'price', 'quantity', 'image', 'category']
+        fields: list[str] = ['id', 'name', 'description', 'price', 'quantity', 'image', 'category']
