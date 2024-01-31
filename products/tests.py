@@ -19,7 +19,7 @@ class IndexViewTestCase(TestCase):
 
 
 class ProductsListViewTestCase(TestCase):
-    fixtures = ['categories.json', 'goods.json']
+    fixtures: list = ['categories.json', 'goods.json']
 
     def setUp(self) -> None:
         self.products = Product.objects.all()

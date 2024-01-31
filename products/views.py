@@ -47,7 +47,7 @@ class ProductsListView(TitleMixin, ListView):
 
 @login_required
 def basket_add(request, product_id: int):
-    product = Product.objects.get(id=product_id)
+    product: int = Product.objects.get(id=product_id)
     baskets = Basket.objects.filter(user=request.user, product=product)
 
     if not baskets.exists():
