@@ -183,3 +183,10 @@ CELERY_RESULT_BACKEND: str = f'redis://{REDIS_HOST}:{REDIS_PORT}'
 STRIPE_PUBLIC_KEY: str = config('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET: str = config('STRIPE_SECRET')
 STRIPE_WEBHOOK_SECRET: str = config('STRIPE_WEBHOOK_SECRET')
+
+# --- Django RSET---
+
+REST_FRAMEWORK: dict[str, str | int] = {
+    'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
+    'PAGE_SIZE': 6,
+}
