@@ -28,7 +28,7 @@ class Product(models.Model):
     quantity: int = models.PositiveSmallIntegerField(default=0)
     category: str = models.ForeignKey(to=ProductCategory, on_delete=models.CASCADE)
     image = models.ImageField(upload_to='products_images')
-    stripe_product_price_id = models.CharField(max_length=128, null=True, blank=True)
+    stripe_product_price_id: int = models.CharField(max_length=128, null=True, blank=True)
 
     class Meta:
         verbose_name: str = 'product'
@@ -81,7 +81,7 @@ class Basket(models.Model):
     user = models.ForeignKey(to=User, on_delete=models.CASCADE)
     product: str = models.ForeignKey(to=Product, on_delete=models.CASCADE)
     quantity: int = models.PositiveSmallIntegerField(default=0)
-    created_timestamp = models.DateTimeField(auto_now_add=True)
+    created_timestamp: int = models.DateTimeField(auto_now_add=True)
 
     objects = BasketQuerySet.as_manager()
 
