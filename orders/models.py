@@ -16,14 +16,14 @@ class Order(models.Model):
         (DELIVERED, 'Delivered'),
     )
 
-    first_name = models.CharField(max_length=64)
-    last_name = models.CharField(max_length=64)
-    email = models.EmailField(max_length=256)
-    address = models.CharField(max_length=256)
-    basket_history = models.JSONField(default=dict)
-    created = models.DateTimeField(auto_now=True)
-    status = models.SmallIntegerField(default=CREATED, choices=STATUSES)
-    initiator = models.ForeignKey(to=User, on_delete=models.CASCADE)
+    first_name: str = models.CharField(max_length=64)
+    last_name: str = models.CharField(max_length=64)
+    email: str = models.EmailField(max_length=256)
+    address: str = models.CharField(max_length=256)
+    basket_history: dict = models.JSONField(default=dict)
+    created: int = models.DateTimeField(auto_now=True)
+    status: int = models.SmallIntegerField(default=CREATED, choices=STATUSES)
+    initiator: str = models.ForeignKey(to=User, on_delete=models.CASCADE)
 
     def __str__(self) -> str:
         return f"Order №{self.id}. For: {self.first_name} {self.last_name}"
