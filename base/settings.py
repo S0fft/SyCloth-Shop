@@ -185,9 +185,18 @@ STRIPE_PUBLIC_KEY: str = config('STRIPE_PUBLIC_KEY')
 STRIPE_SECRET: str = config('STRIPE_SECRET')
 STRIPE_WEBHOOK_SECRET: str = config('STRIPE_WEBHOOK_SECRET')
 
-# --- Django RSET---
+# --- Django REST---
 
 REST_FRAMEWORK: dict[str, str | int] = {
     'DEFAULT_PAGINATION_CLASS': 'rest_framework.pagination.LimitOffsetPagination',
     'PAGE_SIZE': 6,
+
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ],
+
+    'DEFAULT_PERMISSION_CLASSES': [
+        'rest_framework.permissions.IsAuthenticated',
+    ]
 }
