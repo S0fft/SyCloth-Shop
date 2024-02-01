@@ -30,6 +30,7 @@ INSTALLED_APPS: list[str] = [
     'debug_toolbar',
     'django_extensions',
     'rest_framework',
+    'rest_framework.authtoken',
 
     'products',
     'orders',
