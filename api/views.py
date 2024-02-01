@@ -9,7 +9,7 @@ class ProductModelViewSet(ModelViewSet):
     queryset = Product.objects.all()
     serializer_class = ProductSerializer
 
-    def get_permissions(self):
+    def get_permissions(self) -> list:
         if self.action in ('create', 'update', 'destroy'):
             self.permission_classes = [IsAdminUser]
 
