@@ -46,22 +46,14 @@ class ProductsListView(TitleMixin, ListView):
 
 
 @login_required
-def basket_add(request, product_id: int):
-    product: int = Product.objects.get(id=product_id)
-    baskets = Basket.objects.filter(user=request.user, product=product)
-
-    if not baskets.exists():
-        Basket.objects.create(user=request.user, product=product, quantity=1)
-    else:
-        basket = baskets.first()
-        basket.quantity += 1
-        basket.save()
+def basket_add(request, product_id: int) -> HttpResponseRedirect:
+    Basket.create_or_update(product_id, request.user)
 
     return HttpResponseRedirect(request.META['HTTP_REFERER'])
 
 
 @login_required
-def basket_remove(request, basket_id: int):
+def basket_remove(request, basket_id: int) -> HttpResponseRedirect:
     basket = Basket.objects.get(id=basket_id)
     basket.delete()
 
