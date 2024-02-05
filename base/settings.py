@@ -73,7 +73,7 @@ TEMPLATES: list[dict[str, any]] = [
 
 WSGI_APPLICATION: str = 'base.wsgi.application'
 
-INTERNAL_IPS = [
+INTERNAL_IPS: list[str] = [
     '127.0.0.1',
     'localhost',
 ]
@@ -81,7 +81,7 @@ INTERNAL_IPS = [
 REDIS_HOST: str = config('REDIS_HOST')
 REDIS_PORT: str = config('REDIS_PORT')
 
-CACHES = {
+CACHES: dict[str, str] = {
     'default': {
         'BACKEND': 'django_redis.cache.RedisCache',
         'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/1',
