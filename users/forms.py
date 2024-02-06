@@ -1,7 +1,7 @@
 from django import forms
 from django.contrib.auth.forms import AuthenticationForm, UserChangeForm, UserCreationForm
 
-from users.models import User, EmailVerification
+from users.models import EmailVerification, User
 from users.tasks import send_email_verification
 
 
@@ -74,7 +74,6 @@ class UserProfileForm(UserChangeForm):
     }))
     email = forms.CharField(widget=forms.TextInput(attrs={
         'class': 'form-control py-4',
-        'readonly': True
     }))
 
     class Meta:
