@@ -32,7 +32,7 @@ class UserProfileView(TitleMixin, UpdateView):
     template_name: str = 'users/profile.html'
 
     def get_success_url(self) -> str:
-        return reverse_lazy('users:login', args=(self.object.id,))
+        return reverse_lazy('users:profile', args=(self.object.id,))
 
 
 class EmailVerificationView(TitleMixin, TemplateView):
