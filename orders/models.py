@@ -9,7 +9,7 @@ class Order(models.Model):
     PAID: int = 1
     ON_WAY: int = 2
     DELIVERED: int = 3
-    STATUSES: list[list] = (
+    STATUSES: list[list[int, str]] = (
         (CREATED, 'Created'),
         (PAID, 'Paid'),
         (ON_WAY, 'On way'),
