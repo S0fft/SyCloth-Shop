@@ -33,7 +33,7 @@ class Order(models.Model):
         self.status: str = self.PAID
         self.basket_history: dict[str, list[str] | float] = {
             'purchased_items': [basket.de_json() for basket in baskets],
-            'total_sum': float(baskets.total_sum())
+            'total_sum': float(baskets.total_sum()),
         }
         baskets.delete()
         self.save()
