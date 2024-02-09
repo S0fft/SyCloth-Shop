@@ -17,9 +17,9 @@
               </tr>
             </thead>
             <tbody>
-              {% for purchased_item in object.basket_history.purchased_item %}
+              {% for purchased_item in object.basket_history.purchased_items %}
                 <tr>
-                  <th scope="row">{{ purchased_item }}</th>
+                  <th scope="row">{{ purchased_item.product_name }}</th>
                   <td>{{ purchased_item.quantity }}</td>
                   <td>{{ purchased_item.price|intcomma }}</td>
                   <td>{{ purchased_item.sum|intcomma }}</td>
