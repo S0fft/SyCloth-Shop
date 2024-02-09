@@ -17,7 +17,7 @@ from orders.forms import OrderForm
 from orders.models import Order
 from products.models import Basket
 
-stripe.api_key: str = settings.STRIPE_SECRET
+stripe.api_key = settings.STRIPE_SECRET
 
 
 class SuccessTemplateView(TitleMixin, TemplateView):
@@ -47,7 +47,7 @@ class OrderDetailView(DetailView):
 
     def get_context_data(self, **kwargs: Any) -> dict[str, Any]:
         context = super().get_context_data(**kwargs)
-        context['title']: str = f'SyCloth - Order № {self.object.id}'
+        context['title'] = f'SyCloth - Order № {self.object.id}'
 
         return context
 
