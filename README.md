@@ -16,4 +16,14 @@ Also, the following libraries were used: python-decouple, Pillow, django-allauth
 ## Local deployment
 To begin, create a root directory on your computer. Next, open it in a code editor or IDE.
 Afterwards, follow all the recommendations listed below.
-  
+
+Create virtual environment: <br>
+```powershell
+python -m venv .venv
+```
+
+And activate it:
+
+```powershell
+.venv\Scripts\Activate
+``` 
