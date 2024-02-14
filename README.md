@@ -15,7 +15,7 @@ Also, the following libraries were used: python-decouple, Pillow, django-allauth
 
 ## Local Deployment
 
-### Stack Install and Creating The Root Directory
+### Installing the Stack and Creating the Root Directory
 To begin, install: [Python](https://www.python.org/downloads/) | [PostgreSQL](https://www.postgresql.org/) | [Redis](https://redis.io/)
 <br>
 Now, create a root folder on your computer. Next, open it in a code editor or IDE.
