@@ -1,5 +1,5 @@
 # SyCloth
-Clothing shop — SSR ecommerce project on Django + API on DRF
+#### Clothing shop — SSR ecommerce project on Django + API on DRF
 
 SyCloth - it's not big clothing shop, wich give standars possiblities for clients.
 In the project created 4 applications: products, users, orders, api.
