@@ -6,14 +6,14 @@ In the project created 4 applications: products, users, orders, api.
 
 Stack:
  - Pyhton
- - Django
+ - Django + DRF
  - PostgreSQL
  - Redis
  - Celery
 
 Also, the following libraries were used: python-decouple, Pillow, django-allauth, django-debug-toolbar and others.
 
-## Local deployment
+## Local Deployment
 
 ### Stack Install and Creating The Root Directory
 To begin, install: [Python](https://www.python.org/downloads/) | [PostgreSQL](https://www.postgresql.org/) | [Redis](https://redis.io/)
@@ -69,3 +69,48 @@ Then, run server:
 python manage.py runserver
 ```
 
+<details>
+<summary><h3> Deployment on Unix System </h3></summary>
+These commands do the same thing as described above: 
+<br>
+
+### Venv
+```bash
+python3.9 -m venv ../venv
+```
+
+```bash
+source ../venv/bin/activate
+```
+
+### Packages
+```bash
+pip install --upgrade pip
+```
+```bash
+pip install -r requirements.txt
+```
+
+### Fixtures and Migrations
+```bash
+./manage.py migrate
+```
+
+```bash
+./manage.py loaddata <path_to_fixture_files>
+```
+
+### Redis and Celery
+```bash
+redis-server
+```
+
+```bash
+celery -A store worker --loglevel=INFO
+```
+
+### Server Rise
+```bash
+./manage.py runserver
+```
+</details>
