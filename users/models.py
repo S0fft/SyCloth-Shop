@@ -26,7 +26,7 @@ class EmailVerification(models.Model):
         link: str = reverse('users:email_verification', kwargs={'email': self.user.email, 'code': self.code})
         verification_link: str = f'{settings.DOMAIN_NAME}{link}'
         subject: str = f'Confirmation of the account for {self.user.username}'
-        message: str = f'To confirm the account {self.user.email} follow this link {verification_link}'
+        message: str = f'To confirm the account {self.user.email} follow this link {verification_link}!'
 
         try:
             send_mail(
