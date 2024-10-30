@@ -9,12 +9,12 @@ email-verification. Сreated API. Unit Tests are written. OAuth
 
 #### Stack:
  - Pyhton
- - Django + DRF
+ - Django + Django REST Framework
  - PostgreSQL
  - Redis
  - Celery
 
-Also, the following libraries were used: python-decouple, Pillow, django-allauth, django-debug-toolbar and others.
+And other small libraries specified in `requirements.txt`.
 
 ## Local Deployment
 
