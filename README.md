@@ -4,7 +4,7 @@
 The online clothing store with registration/authorization, a
 shopping cart, user-profile-settings, a configured admin
 panel and order payment functionality (Stripe). Implemented
-email-verification. Сreated API. Unit Tests are written. OAuth
+email-verification. Created API. Unit Tests are written. OAuth
 2.0 added. For storage using PostgreSQL.
 
 #### Stack:
@@ -15,7 +15,7 @@ email-verification. Сreated API. Unit Tests are written. OAuth
  - Redis
  - Celery
 
-And other small libraries specified in `requirements.txt`.
+Additional libraries are specified in the `requirements.txt` file.
 
 ## Project Setup on Windows
 
@@ -77,10 +77,10 @@ celery -A store worker --loglevel=INFO
 ```
 ### - Running the Server
 Then, run server:
-
 ```powershell
 python manage.py runserver
 ```
+After starting the server, you can access the application by navigating to `http://127.0.0.1:8000` in your browser.
 
 <details>
 <summary><h3> Project Setup on Unix-Like Systems </h3></summary>
@@ -103,11 +103,11 @@ You will see the project files appear in your directory.
 
 ### - Creating a Virtual Environment
 ```bash
-python3.9 -m venv ../venv
+python3 -m pip install --upgrade pip
 ```
 
 ```bash
-source ../venv/bin/activate
+source ./venv/bin/activate
 ```
 
 ### - Installing the Requirements
@@ -120,11 +120,11 @@ pip install -r requirements.txt
 
 ### - Applying the Migrations and Fixture
 ```bash
-./manage.py migrate
+python3 manage.py migrate
 ```
 
 ```bash
-./manage.py loaddata <path_to_fixture_files>
+python3 manage.py loaddata <path_to_fixture_files>
 ```
 
 ### - Starting Redis and Celery
@@ -138,6 +138,8 @@ celery -A store worker --loglevel=INFO
 
 ### - Running the Server
 ```bash
-./manage.py runserver
+python3 manage.py runserver
 ```
+After starting the server, you can access the application by navigating to `http://127.0.0.1:8000` in your browser.
+
 </details>
