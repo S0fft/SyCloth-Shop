@@ -9,7 +9,8 @@ email-verification. Сreated API. Unit Tests are written. OAuth
 
 #### Stack:
  - Pyhton
- - Django + Django REST Framework
+ - Django
+ - Django REST Framework
  - PostgreSQL
  - Redis
  - Celery
