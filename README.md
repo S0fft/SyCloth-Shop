@@ -87,6 +87,20 @@ python manage.py runserver
 These commands do the same thing as described above: 
 <br>
 
+### - Installing the Stack
+To begin, install: [Python](https://www.python.org/downloads/) | [PostgreSQL](https://www.postgresql.org/) | [Redis](https://redis.io/)
+<br>
+Links are provided to the latest version of the tools.
+
+### - Cloning a Project from GitHub
+Create a root directory on your computer, then open it in your code editor or terminal.
+<br>
+Next, write this command into the command line:
+```powershell
+git clone https://github.com/S0fft/SyCloth-Shop.git
+```
+You will see the project files appear in your directory.
+
 ### - Creating a Virtual Environment
 ```bash
 python3.9 -m venv ../venv
