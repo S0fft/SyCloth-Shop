@@ -17,15 +17,24 @@ email-verification. Сreated API. Unit Tests are written. OAuth
 
 And other small libraries specified in `requirements.txt`.
 
-## Local Deployment
+## Project Setup on Windows
 
-### Installing the Stack and Creating the Root Directory
+### - Installing the Stack
 To begin, install: [Python](https://www.python.org/downloads/) | [PostgreSQL](https://www.postgresql.org/) | [Redis](https://redis.io/)
 <br>
-Now, create a root folder on your computer. Next, open it in a code editor or IDE.
+Links are provided to the latest version of the tools.
 
-### Venv
-Create virtual environment:
+### - Cloning a Project from GitHub
+Create a root directory on your computer, then open it in your code editor or terminal.
+<br>
+Next, write this command into the command line:
+```powershell
+git clone https://github.com/S0fft/SyCloth-Shop.git
+```
+You will see the project files appear in your directory.
+
+### - Creating a Virtual Environment
+Create a virtual environment:
 ```powershell
 python -m venv .venv
 ```
@@ -35,18 +44,18 @@ And activate it:
 ```powershell
 .venv\Scripts\Activate
 ``` 
-### Packages
+### - Installing the Requirements
 Next, install packages:
 
 ```powershell
-pip install --upgrade pip
+python.exe -m pip install --upgrade pip
 ``` 
 ```powershell
 pip install -r requirements.txt
 ```
 
- ### Fixtures and Migrations
-Apply migration and load data from fixture for products and appearance other information:
+ ### - Applying the Migrations and Fixture
+Using Migrations to Create a Database Structure. Load data from fixture for products and appearance other information.
 
 ```powershell
 python manage.py migrate
@@ -56,7 +65,7 @@ python manage.py migrate
 python manage.py loaddata <path_to_fixture_files>
 ```
 
-### Redis and Celery
+### - Starting Redis and Celery
 After, launch Redis and Celery using these commands:
 
 ```powershell
@@ -66,7 +75,7 @@ redis-server
 ```powershell
 celery -A store worker --loglevel=INFO
 ```
-### Server Rise
+### - Running the Server
 Then, run server:
 
 ```powershell
@@ -74,11 +83,11 @@ python manage.py runserver
 ```
 
 <details>
-<summary><h3> Deployment on Unix System </h3></summary>
+<summary><h3> Project Setup on Unix-Like Systems </h3></summary>
 These commands do the same thing as described above: 
 <br>
 
-### Venv
+### - Creating a Virtual Environment
 ```bash
 python3.9 -m venv ../venv
 ```
@@ -87,7 +96,7 @@ python3.9 -m venv ../venv
 source ../venv/bin/activate
 ```
 
-### Packages
+### - Installing the Requirements
 ```bash
 pip install --upgrade pip
 ```
@@ -95,7 +104,7 @@ pip install --upgrade pip
 pip install -r requirements.txt
 ```
 
-### Fixtures and Migrations
+### - Applying the Migrations and Fixture
 ```bash
 ./manage.py migrate
 ```
@@ -104,7 +113,7 @@ pip install -r requirements.txt
 ./manage.py loaddata <path_to_fixture_files>
 ```
 
-### Redis and Celery
+### - Starting Redis and Celery
 ```bash
 redis-server
 ```
@@ -113,7 +122,7 @@ redis-server
 celery -A store worker --loglevel=INFO
 ```
 
-### Server Rise
+### - Running the Server
 ```bash
 ./manage.py runserver
 ```
