@@ -29,7 +29,7 @@ Create a root directory on your computer, then open it in your code editor or te
 <br>
 Next, write this command into the command line:
 ```powershell
-git clone https://github.com/S0fft/SyCloth-Shop.git
+git clone https://github.com/S0fft/SyCloth-Shop.git .
 ```
 You will see the project files appear in your directory.
 
