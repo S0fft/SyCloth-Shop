@@ -43,13 +43,13 @@ And activate it:
 
 ```powershell
 .venv\Scripts\Activate
-``` 
+```
 ### - Installing the Requirements
 Next, install packages:
 
 ```powershell
 python.exe -m pip install --upgrade pip
-``` 
+```
 ```powershell
 pip install -r requirements.txt
 ```
@@ -84,7 +84,7 @@ After starting the server, you can access the application by navigating to `http
 
 <details>
 <summary><h3> Project Setup on Unix-Like Systems </h3></summary>
-These commands do the same thing as described above: 
+These commands do the same thing as described above:
 <br>
 
 ### - Installing the Stack
