@@ -1,4 +1,4 @@
-# SyCloth
+# SyCloth-Shop
 #### Clothing-Shop — SSR Ecommerce Project on Django + API on Django REST Framework
 
 The online clothing store with registration/authorization, a shopping cart, user-profile-settings, a configured admin
