@@ -1,5 +1,5 @@
 # SyCloth
-#### Clothing-Shop — SSR ecommerce project on Django + API on Django REST Framework
+#### Clothing-Shop — SSR Ecommerce Project on Django + API on Django REST Framework
 
 The online clothing store with registration/authorization, a shopping cart, user-profile-settings, a configured admin
 panel and order payment functionality (Stripe). Implemented email-verification. Created API. Unit Tests are written. Added OAuth 2.0 (Google / GitHub). For storage using PostgreSQL.
